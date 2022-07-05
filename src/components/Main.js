@@ -19,7 +19,7 @@ export function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
 
       })
       .catch((err) => console.log(`Error: ${err}`))
-  }, [onCardClick])
+  }, [])
 
   function handleEditAvatarClick() {
     onEditAvatar()
@@ -34,32 +34,30 @@ export function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
   }
 
   return (
-    <>
-      <main className="content">
-        <section className="profile">
-          <div className="profile__content">
-            <button className="profile__avatar" style={{ backgroundImage: `url(${userAvatar})` }}
-                    onClick={handleEditAvatarClick}/>
-            <div className="profile__info">
-              <div className="profile__wrap">
-                <h1 className="profile__title">{userName}</h1>
-                <button
-                  className="profile__edit-button"
-                  aria-label="Редактировать"
-                  onClick={handleEditProfileClick}
-                />
-              </div>
-              <p className="profile__subtitle">{userDescription}</p>
+    <main className="content">
+      <section className="profile">
+        <div className="profile__content">
+          <button className="profile__avatar" style={{ backgroundImage: `url(${userAvatar})` }}
+                  onClick={handleEditAvatarClick}/>
+          <div className="profile__info">
+            <div className="profile__wrap">
+              <h1 className="profile__title">{userName}</h1>
+              <button
+                className="profile__edit-button"
+                aria-label="Редактировать"
+                onClick={handleEditProfileClick}
+              />
             </div>
+            <p className="profile__subtitle">{userDescription}</p>
           </div>
-          <button className="profile__add-button" aria-label="Добавить" onClick={handleAddPlaceClick}/>
-        </section>
-        <section>
-          <ul className="photo-cards">
-            {cards}
-          </ul>
-        </section>
-      </main>
-    </>
+        </div>
+        <button className="profile__add-button" aria-label="Добавить" onClick={handleAddPlaceClick}/>
+      </section>
+      <section>
+        <ul className="photo-cards">
+          {cards}
+        </ul>
+      </section>
+    </main>
   )
 }

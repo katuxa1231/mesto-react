@@ -40,7 +40,8 @@ function App() {
       <Main onEditProfile={onEditProfile} onAddPlace={onAddPlace} onEditAvatar={onEditAvatar}
             onCardClick={handleCardClick}/>
       <Footer/>
-      <PopupWithForm name="add" title="Новое место" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm name="add" title="Новое место" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}
+                     buttonText="Создать">
         <div className="form__input-wrapper">
           <input
             id="place-input"
@@ -65,11 +66,9 @@ function App() {
           />
           <span className="url-input-error form__input-error"/>
         </div>
-        <button className="form__submit-button" type="submit">
-          Создать
-        </button>
       </PopupWithForm>
-      <PopupWithForm name="edit" title="Редактировать профиль" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm name="edit" title="Редактировать профиль" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}
+                     buttonText="Сохранить">
         <div className="form__input-wrapper">
           <input
             id="name-input"
@@ -79,6 +78,7 @@ function App() {
             required=""
             minLength={2}
             maxLength={40}
+            placeholder="Имя"
           />
           <span className="name-input-error form__input-error"/>
         </div>
@@ -91,14 +91,13 @@ function App() {
             required=""
             minLength={2}
             maxLength={200}
+            placeholder="Дополнительная информация"
           />
           <span className="job-input-error form__input-error"/>
         </div>
-        <button className="form__submit-button" type="submit">
-          Сохранить
-        </button>
       </PopupWithForm>
-      <PopupWithForm name="edit-avatar" title="Обновить аватар" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm name="edit-avatar" title="Обновить аватар" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}
+                     buttonText="Сохранить">
         <div className="form__input-wrapper">
           <input
             id="avatar-url"
@@ -110,15 +109,8 @@ function App() {
           />
           <span className="avatar-url-error form__input-error"/>
         </div>
-        <button className="form__submit-button" type="submit">
-          Сохранить
-        </button>
       </PopupWithForm>
-      <PopupWithForm name="confirm" title="Вы уверены?" isOpen={false}>
-        <button className="form__submit-button" type="submit">
-          Да
-        </button>
-      </PopupWithForm>
+      <PopupWithForm name="confirm" title="Вы уверены?" isOpen={false} buttonText="Да"></PopupWithForm>
       <ImagePopup card={selectedCard} handleCloseButtonClick={closeAllPopups}/>
     </div>
 
